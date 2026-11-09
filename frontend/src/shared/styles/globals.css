@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-primary-50: #e6f4f0;
+  --color-primary-100: #c4e6de;
+  --color-primary-200: #94d3c4;
+  --color-primary-300: #5fbca6;
+  --color-primary-400: #2fa286;
+  --color-primary-500: #008267;
+  --color-primary-600: #007058;
+  --color-primary-700: #005c48;
+  --color-primary-800: #004838;
+  --color-primary-900: #00332a;
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #f7f9f8;
+  --color-neutral-100: #eef1f0;
+  --color-neutral-200: #e1e6e4;
+  --color-neutral-300: #c9d1ce;
+  --color-neutral-400: #9aa5a2;
+  --color-neutral-500: #616d69; /* contraste AA (5:1) sobre superfícies claras */
+  --color-neutral-600: #4f5a57;
+  --color-neutral-700: #3a4340;
+  --color-neutral-800: #262d2b;
+  --color-neutral-900: #141918;
+
+  --color-success-bg: #e6f4f0;
+  --color-success-border: #94d3c4;
+  --color-success-text: #005c48;
+
+  --color-info-bg: #e8f1f8;
+  --color-info-border: #a8c9e3;
+  --color-info-text: #1a5c8a;
+
+  --color-warning-bg: #fdf3e4;
+  --color-warning-border: #f0ce96;
+  --color-warning-text: #8a5a00;
+
+  --color-danger-bg: #fdecea;
+  --color-danger-border: #f2b5ae;
+  --color-danger-text: #a3271b;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --font-sans: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+
+  --text-display: 30px;
+  --text-display--line-height: 38px;
+  --text-display--font-weight: 600;
+  --text-h1: 24px;
+  --text-h1--line-height: 32px;
+  --text-h1--font-weight: 600;
+  --text-h2: 20px;
+  --text-h2--line-height: 28px;
+  --text-h2--font-weight: 600;
+  --text-h3: 16px;
+  --text-h3--line-height: 24px;
+  --text-h3--font-weight: 600;
+  --text-body: 14px;
+  --text-body--line-height: 20px;
+  --text-body--font-weight: 400;
+  --text-body-strong: 14px;
+  --text-body-strong--line-height: 20px;
+  --text-body-strong--font-weight: 500;
+  --text-small: 13px;
+  --text-small--line-height: 18px;
+  --text-small--font-weight: 400;
+  --text-caption: 12px;
+  --text-caption--line-height: 16px;
+  --text-caption--font-weight: 500;
+
+  --radius: 8px;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-sm: 0 1px 2px rgba(20, 25, 24, 0.05);
+  --shadow-md: 0 4px 12px rgba(20, 25, 24, 0.08);
+  --shadow-lg: 0 12px 32px rgba(20, 25, 24, 0.12);
+
+  --default-transition-duration: 150ms;
+
+  --animate-accordion-down: accordion-down 200ms ease-out;
+  --animate-accordion-up: accordion-up 200ms ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+/* Tailwind v4 usa `currentcolor` como borda padrão; isto mantém a da v3. Remover exige cor de borda explícita onde se depende dela. */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+:root {
+  --radius: 8px;
+
+  --background: 210 12% 97%;
+  --foreground: 165 8% 15%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 165 8% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 165 8% 15%;
+
+  --primary: 168 100% 26%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 165 9% 93%;
+  --secondary-foreground: 160 8% 24%;
+
+  --muted: 165 9% 93%;
+  --muted-foreground: 160 6% 40%;
+
+  --accent: 165 33% 94%;
+  --accent-foreground: 165 100% 18%;
+
+  --destructive: 6 71% 40%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 160 8% 88%;
+  --input: 155 10% 80%;
+  --ring: 168 100% 26%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-variant-numeric: normal;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}

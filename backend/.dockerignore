@@ -1,0 +1,12 @@
+# Segredos e artefatos locais não entram na imagem.
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
